@@ -22,7 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void insertEmployee(Employee employee) {
-		employee.setEmpName(employee.getEmpName() + "Emp");
+		employee.setEmpName(employee.getEmpName());
 		employeeDao.insertEmployee(employee);
 		
 	}
