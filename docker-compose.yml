@@ -1,10 +1,10 @@
 version: "3.8"
 services:
-  employee-app:
+  employee:
     build:
       context: .
-    image: employee-app
-    container_name: employee-app
+    image: employee
+    container_name: employee
     ports:
       - "8080:8080"
     environment:
@@ -12,7 +12,7 @@ services:
     volumes:
       - ./:/app
     networks:
-      - mysqlnet
+      - mysql_net
     depends_on:
       - mysqldb
     restart: always
@@ -29,7 +29,7 @@ services:
       - mysql_data:/var/lib/mysql
       - mysql_config:/etc/mysql/conf.d
     networks:
-      - mysqlnet
+      - mysql_net
 
 volumes:
   mysql_data:
@@ -37,5 +37,5 @@ volumes:
   mysql_config:
     name: mysql_config
 networks:
-  mysqlnet:
-    name: mysqlnet
+  mysql_net:
+    name: mysql_net
